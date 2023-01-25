@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Sample serverless Conference with Amazon Chime Demo
+Globals:
+ Function:
+   Runtime: nodejs12.x
+   Timeout: 30
+   MemorySize: 128
+Resources:
+ # Chime Resources Access Policy
+ ChimeMeetingsAccessPolicy:
+   Type: AWS::IAM::Policy
+   Properties:
+     PolicyName: ChimeMeetingsAccess
+     PolicyDocument:
+       Version: "2012-10-17"
+       Statement:
+         - Effect: Allow
+           Action:
+             - 'chime:CreateMeeting'
+             - 'chime:ListMeetings'
+             - 'chime:CreateAttendee'
+           Resource: '*'
+     Roles:
+       # This function role will have this policy
+       - Ref: ConferenceStartFunctionRole
+ 
+ # Conference start function definition
+ ConferenceStartFunction:
+   Type: AWS::Serverless::Function
+   Properties:
+     Handler: handlers.start
+     Events:
+        Api1:
+         Type: Api
+         Properties:
+           Path: /start
+           Method: GET
+Outputs:
+ ApiURL:
+   Description: "API endpoint URL for Prod environment"
+   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
