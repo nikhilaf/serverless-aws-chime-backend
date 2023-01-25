@@ -11,20 +11,20 @@ Prerequisites
 Lambda deployment
 ------------------
 
-1. ```  npm i   ```
-2. ```  sam build   ```
-3. ```  sam deploy --guided   ```
-4. Use us-east-1 region in option while in deployment
+- ```  npm i   ```
+- ```  sam build   ```
+- ```  sam deploy --guided   ```
+- Use us-east-1 region in option while in deployment
 
 Test the application
 --------------------
 
-1. Take the endpoint URL.
-2. clone the [Frontend demo repo](https://github.com/WebRTCventures/simple-chime-frontend)
-3. Change the URL [here](https://github.com/WebRTCventures/simple-chime-frontend/blob/main/src/App.js#L165)
-4. ```  npm i   ```
-5. ```  npm start   ```
-6. check in the browser with ```    https://localhost:3000  ```
-7. Enter room name and test the meeting.
+- Take the endpoint URL.
+- clone the [Frontend demo repo](https://github.com/WebRTCventures/simple-chime-frontend)
+- Change the URL [here](https://github.com/WebRTCventures/simple-chime-frontend/blob/main/src/App.js#L165)
+- ```  npm i   ```
+- ```  npm start   ```
+- check in the browser with ```    https://localhost:3000  ```
+- Enter room name and test the meeting.
 
 
